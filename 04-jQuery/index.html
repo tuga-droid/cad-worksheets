@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Home Sweet Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    .form-check-input, .form-check-label {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Main navigation">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">Home Sweet Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="history.html">History</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-3">
+    <h1 class="visually-hidden">Dashboard</h1>
+    <div class="row g-3">
+      <!-- Kitchen Card -->
+      <section class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <h2 class="card-header text-center fs-5">Kitchen</h2>
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-thermometer-half text-danger me-2"></i><strong>Temperature</strong></span>
+              <span id="kitchen-temperature">19.2 °C</span>
+            </div>
+            <p class="small text-muted mb-2">5 minutes ago</p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <label for="kitchen-lights-switch" class="form-check-label mb-0">
+                <i id="kitchen-lights-icon" class="bi bi-lightbulb-fill text-warning me-2"></i><strong>Lights</strong>
+              </label>
+              <div class="form-check form-switch mb-0">
+                <input class="form-check-input" type="checkbox" role="switch" id="kitchen-lights-switch" value="on" checked>
+              </div>
+            </div>
+            <p class="small text-muted mb-2">10 minutes ago</p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-record-circle text-primary me-2"></i><strong>West Window</strong></span>
+              <span class="text-success">Open</span>
+            </div>
+            <p class="small text-muted mb-2">15 minutes ago</p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-record-circle text-primary me-2"></i><strong>North Window</strong></span>
+              <span class="text-success">Open</span>
+            </div>
+            <p class="small text-muted mb-0">15 minutes ago</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Living Room Card -->
+      <section class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <h2 class="card-header text-center fs-5">Living Room</h2>
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-thermometer-half text-danger me-2"></i><strong>Temperature</strong></span>
+              <span id="living-temperature">18.1 °C</span>
+            </div>
+            <p class="small text-muted mb-2">5 minutes ago</p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <label for="ceiling-lights-switch" class="form-check-label mb-0">
+                <i id="ceiling-lights-icon" class="bi bi-lightbulb text-secondary me-2"></i><strong>Ceiling Lights</strong>
+              </label>
+              <div class="form-check form-switch mb-0">
+                <input class="form-check-input" type="checkbox" role="switch" id="ceiling-lights-switch" value="off">
+              </div>
+            </div>
+            <p class="small text-muted mb-2">5 minutes ago</p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <label for="ambient-lights-switch" class="form-check-label mb-0">
+                <i id="ambient-lights-icon" class="bi bi-lightbulb-fill text-warning me-2"></i><strong>Ambient Lights</strong>
+              </label>
+              <div class="form-check form-switch mb-0">
+                <input class="form-check-input" type="checkbox" role="switch" id="ambient-lights-switch" value="on" checked>
+              </div>
+            </div>
+            <p class="small text-muted mb-2">7 minutes ago</p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <label for="ambient-music-switch" class="form-check-label mb-0">
+                <i id="ambient-music-icon" class="bi bi-volume-mute-fill text-danger me-2"></i><strong>Ambient Music</strong>
+              </label>
+              <div class="form-check form-switch mb-0">
+                <input class="form-check-input" type="checkbox" role="switch" id="ambient-music-switch" value="off">
+              </div>
+            </div>
+            <p class="small text-muted mb-0">17 minutes ago</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Clock Card -->
+      <section class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <h2 class="card-header text-center fs-5">Clock</h2>
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center">
+              <span><i class="bi bi-clock text-primary me-2"></i><strong>Time</strong></span>
+              <span id="clock-time">18:47:55</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center mt-3">
+              <span><i class="bi bi-calendar3 text-success me-2"></i><strong>Date</strong></span>
+              <span id="clock-date">2023-10-10</span>
+            </div>
+            <div class="mt-3">
+              <span><i class="bi bi-sun-fill text-warning me-2"></i><strong>Sunrise / Sunset above horizon</strong></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Weather Card -->
+      <section class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100">
+          <h2 class="card-header text-center fs-5">Weather</h2>
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span><i class="bi bi-info-circle text-primary me-2"></i><strong>Current Temperature</strong></span>
+              <span id="weather-temperature">21.09 °C</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span><i class="bi bi-arrow-up-circle text-danger me-2"></i><strong>Max. Temperature</strong></span>
+              <span id="weather-temp-max">21.20 °C</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span><i class="bi bi-arrow-down-circle text-primary me-2"></i><strong>Min. Temperature</strong></span>
+              <span id="weather-temp-min">19.94 °C</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span><i class="bi bi-droplet-fill text-info me-2"></i><strong>Humidity</strong></span>
+              <span id="weather-humidity">93%</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span><i class="bi bi-sunrise-fill text-warning me-2"></i><strong>Sunrise Time</strong></span>
+              <span id="weather-sunrise">7h46</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <span><i class="bi bi-sunset-fill text-warning me-2"></i><strong>Sunset Time</strong></span>
+              <span id="weather-sunset">18h54</span>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center small text-muted my-2">
+              <span>Last Update</span>
+              <span id="weather-last-update">11 seconds ago</span>
+            </div>
+
+            <div class="d-flex gap-2">
+              <label for="weather-city" class="visually-hidden">City</label>
+              <input type="text" id="weather-city" class="form-control" value="Leiria" placeholder="City">
+              <button type="button" id="weather-get-btn" class="btn text-white px-3" style="background-color: #17a2b8;">Get</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
