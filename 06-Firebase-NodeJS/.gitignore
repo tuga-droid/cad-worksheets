@@ -1,0 +1,7 @@
+# Firebase Admin private service account key (do not commit to Git)
+serviceAccountKey.json
+nodejs-app/serviceAccountKey.json
+
+# Node modules
+node_modules/
+nodejs-app/node_modules/
