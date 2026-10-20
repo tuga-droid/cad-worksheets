@@ -27,8 +27,7 @@ if (!fs.existsSync(serviceAccountPath)) {
 const serviceAccount = require(serviceAccountPath);
 
 // 2. Initialize Firebase Admin SDK
-// IMPORTANT: Replace the databaseURL below with your exact Realtime Database URL
-const databaseURL = process.env.FIREBASE_DATABASE_URL || "https://cad-student-default-rtdb.europe-west1.firebasedatabase.app";
+const databaseURL = process.env.FIREBASE_DATABASE_URL || "https://cad-2191162-default-rtdb.europe-west1.firebasedatabase.app";
 
 admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),

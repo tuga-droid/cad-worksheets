@@ -4,22 +4,19 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
 import { getDatabase } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-/**
- * Configure your Firebase Web credentials here (from Firebase Console > Project settings > General > Your apps)
- * IMPORTANT: Include your exact databaseURL (Belgium / europe-west1 or us-central1)
- */
+// Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://YOUR_PROJECT_ID-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT_ID.firebasestorage.app",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyASUzq7PsT7ad1SFmRxbvNiZGwPPRLz6Mg",
+  authDomain: "cad-2191162.firebaseapp.com",
+  databaseURL: "https://cad-2191162-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "cad-2191162",
+  storageBucket: "cad-2191162.firebasestorage.app",
+  messagingSenderId: "207804148660",
+  appId: "1:207804148660:web:828b2f401acc176ad4e0e1"
 };
 
-// Initialize Firebase App
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Export the Realtime Database reference
+// Export the Realtime Database reference (required for js/index.js)
 export const database = getDatabase(app);
