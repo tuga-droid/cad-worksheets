@@ -18,5 +18,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Export the Realtime Database reference (required for js/index.js)
-export const database = getDatabase(app);
+// Export the Realtime Database reference (explicitly passing databaseURL for europe-west1)
+export const database = getDatabase(app, firebaseConfig.databaseURL);
+export { firebaseConfig };

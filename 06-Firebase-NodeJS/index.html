@@ -34,9 +34,63 @@
 
     <!-- Messages Container (Section 8 - Challenge B) -->
     <div id="messages" class="d-flex flex-column gap-2">
-      <!-- Alerts will be automatically inserted here by js/index.js -->
+      <!-- Alerts will be automatically inserted here -->
     </div>
   </main>
+
+  <!-- Fallback script for file:/// protocol (where browsers block ES modules) -->
+  <script>
+    if (window.location.protocol === 'file:') {
+      document.addEventListener('DOMContentLoaded', function () {
+        var statusBadge = document.getElementById('connection-status');
+        var container = document.getElementById('messages');
+        if (statusBadge) {
+          statusBadge.textContent = 'REST Mode (file://)';
+          statusBadge.className = 'badge bg-warning text-dark';
+        }
+
+        var banner = document.createElement('div');
+        banner.className = 'alert alert-info alert-dismissible fade show mb-3';
+        banner.innerHTML = '<i class="bi bi-info-circle-fill me-2"></i><strong>Nota:</strong> Abriste o ficheiro via <code>file:///</code>. Para a ligação WebSocket em tempo real exigida no guião, abre através do servidor HTTP local: <a href="http://localhost:8080/CAD/Worksheets/06-Firebase-NodeJS/index.html" class="fw-bold alert-link">http://localhost:8080/...</a><button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+        container.parentNode.insertBefore(banner, container);
+
+        var displayedKeys = new Set();
+        function pollMessages() {
+          fetch('https://cad-2191162-default-rtdb.europe-west1.firebasedatabase.app/messages.json')
+            .then(function (res) { return res.json(); })
+            .then(function (data) {
+              if (!data) return;
+              var validTypes = ['success', 'warning', 'danger', 'primary'];
+              Object.keys(data).forEach(function (key) {
+                if (displayedKeys.has(key)) return;
+                displayedKeys.add(key);
+
+                var msg = data[key];
+                var type = validTypes.indexOf(msg.type) !== -1 ? msg.type : 'primary';
+                var alertDiv = document.createElement('div');
+                alertDiv.className = 'alert alert-' + type + ' shadow-sm';
+                alertDiv.setAttribute('role', 'alert');
+                alertDiv.textContent = msg.text || '';
+                if (msg.timestamp) {
+                  var timeSpan = document.createElement('small');
+                  timeSpan.className = 'float-end opacity-75';
+                  timeSpan.textContent = new Date(msg.timestamp).toLocaleTimeString();
+                  alertDiv.appendChild(timeSpan);
+                }
+                container.appendChild(alertDiv);
+                alertDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
+              });
+            })
+            .catch(function (err) {
+              console.error('REST poll error:', err);
+            });
+        }
+
+        pollMessages();
+        setInterval(pollMessages, 3000);
+      });
+    }
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
   <script type="module" src="js/firebase.js"></script>
